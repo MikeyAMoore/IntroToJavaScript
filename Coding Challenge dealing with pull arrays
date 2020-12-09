@@ -1,0 +1,13 @@
+const pull_this_mofo = (arr, pullArr) => {
+  let removed = [];
+  let pulled = arr
+    .map((v, i) => (pullArr.includes(i) ? removed.push(v) : v))
+    .filter((v, i) => !pullArr.includes(i));
+  arr.length = 0;
+  pulled.forEach(v => arr.push(v));
+  return removed;
+};
+let arra1 = ['a', 'b', 'c', 'd', 'f', 'f', 'e', 'f'];
+console.log(pull_this_mofo(arra1, [1, 5]));
+let arra2 =  [1, 2, 3, 4, 5, 6, 7];
+console.log(pull_this_mofo(arra2, [4]));
